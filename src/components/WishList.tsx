@@ -2,8 +2,11 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Plus, Eye, Share2, Lock } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const WishList = () => {
+  const navigate = useNavigate();
+
   const wishes = [
     {
       id: 1,
@@ -38,14 +41,18 @@ const WishList = () => {
     <div className="p-4">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-gray-800">My Wish List</h2>
-        <Button size="sm" className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700">
+        <Button 
+          size="sm" 
+          className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
+          onClick={() => navigate("/wishlist-categories")}
+        >
           <Plus className="w-4 h-4 mr-1" />
-          Add Wish
+          View All
         </Button>
       </div>
       
       <div className="space-y-4">
-        {wishes.map((wish) => (
+        {wishes.slice(0, 2).map((wish) => (
           <Card key={wish.id} className="overflow-hidden hover:shadow-lg transition-all duration-300">
             <div className="relative">
               <img
@@ -96,6 +103,14 @@ const WishList = () => {
             </div>
           </Card>
         ))}
+        
+        <Button 
+          variant="outline" 
+          className="w-full"
+          onClick={() => navigate("/wishlist-categories")}
+        >
+          View All Categories
+        </Button>
       </div>
     </div>
   );
