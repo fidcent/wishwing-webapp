@@ -1,4 +1,3 @@
-
 import { Home, Calendar, Gift, User } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -20,7 +19,6 @@ const BottomNavigation = () => {
     navigate(tab.path);
   };
 
-  // Determine active tab based on current route
   const getCurrentTab = () => {
     if (location.pathname === "/") return "home";
     if (location.pathname.includes("/wishlist") || location.pathname.includes("/category")) return "gifts";

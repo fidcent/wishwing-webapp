@@ -1,8 +1,11 @@
 
-import { Bell, User, Wallet } from "lucide-react";
+import { Bell, User, Wallet, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <header className="bg-gradient-to-r from-green-400 to-blue-600 p-4 text-white">
       <div className="flex items-center justify-between">
@@ -18,12 +21,20 @@ const Header = () => {
         
         <div className="flex items-center space-x-2">
           <Button variant="ghost" size="sm" className="text-white hover:bg-white/20">
+            <Search className="w-5 h-5" />
+          </Button>
+          <Button variant="ghost" size="sm" className="text-white hover:bg-white/20">
             <Bell className="w-5 h-5" />
           </Button>
           <Button variant="ghost" size="sm" className="text-white hover:bg-white/20">
             <Wallet className="w-5 h-5" />
           </Button>
-          <Button variant="ghost" size="sm" className="text-white hover:bg-white/20">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="text-white hover:bg-white/20"
+            onClick={() => navigate("/profile")}
+          >
             <User className="w-5 h-5" />
           </Button>
         </div>
