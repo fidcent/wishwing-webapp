@@ -1,3 +1,4 @@
+
 import { Home, Calendar, Gift, User } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -10,7 +11,7 @@ const BottomNavigation = () => {
   const tabs = [
     { id: "home", icon: Home, label: "Home", path: "/" },
     { id: "calendar", icon: Calendar, label: "Calendar", path: "/calendar" },
-    { id: "gifts", icon: Gift, label: "Gifts", path: "/wishlist-categories" },
+    { id: "wishlist", icon: Gift, label: "Wish List", path: "/wishlist-categories" },
     { id: "profile", icon: User, label: "Profile", path: "/profile" },
   ];
 
@@ -21,7 +22,7 @@ const BottomNavigation = () => {
 
   const getCurrentTab = () => {
     if (location.pathname === "/") return "home";
-    if (location.pathname.includes("/wishlist") || location.pathname.includes("/category")) return "gifts";
+    if (location.pathname.includes("/wishlist") || location.pathname.includes("/category")) return "wishlist";
     if (location.pathname === "/calendar") return "calendar";
     if (location.pathname === "/profile") return "profile";
     return activeTab;

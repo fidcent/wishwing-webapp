@@ -10,6 +10,7 @@ import Signup from "./pages/Signup";
 import Index from "./pages/Index";
 import Profile from "./pages/Profile";
 import Calendar from "./pages/Calendar";
+import Friends from "./pages/Friends";
 import WishListCategories from "./pages/WishListCategories";
 import CategoryWishList from "./pages/CategoryWishList";
 import PublicWishList from "./pages/PublicWishList";
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/calendar" element={<Calendar />} />
+          <Route path="/friends" element={<Friends />} />
           <Route path="/wishlist-categories" element={<WishListCategories />} />
           <Route path="/category-wishlist/:categoryId" element={<CategoryWishList />} />
           <Route path="/public-wishlist/:userId" element={<PublicWishList />} />
