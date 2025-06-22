@@ -9,7 +9,7 @@ const BottomNavigation = () => {
   const [activeTab, setActiveTab] = useState("home");
 
   const tabs = [
-    { id: "home", icon: Home, label: "Home", path: "/" },
+    { id: "home", icon: Home, label: "Home", path: "/home" },
     { id: "calendar", icon: Calendar, label: "Calendar", path: "/calendar" },
     { id: "wishlist", icon: Gift, label: "Wish List", path: "/wishlist-categories" },
     { id: "profile", icon: User, label: "Profile", path: "/profile" },
@@ -21,7 +21,7 @@ const BottomNavigation = () => {
   };
 
   const getCurrentTab = () => {
-    if (location.pathname === "/") return "home";
+    if (location.pathname === "/home") return "home";
     if (location.pathname.includes("/wishlist") || location.pathname.includes("/category")) return "wishlist";
     if (location.pathname === "/calendar") return "calendar";
     if (location.pathname === "/profile") return "profile";
