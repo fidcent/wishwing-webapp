@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
-import { Eye, EyeOff, Mail, Lock } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, Star, Heart } from "lucide-react";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -29,10 +29,25 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-violet-500 via-purple-600 to-blue-600 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        {/* Logo/Brand */}
+        {/* Creative WishWing Logo */}
         <div className="text-center mb-8">
-          <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-6 border border-white/20">
-            <span className="text-3xl font-bold text-white">W</span>
+          <div className="relative w-20 h-20 bg-white/10 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-6 border border-white/20">
+            {/* Wing design with overlapping elements */}
+            <div className="relative">
+              {/* Left wing */}
+              <div className="absolute -left-3 top-1 w-6 h-4 bg-gradient-to-r from-pink-300 to-purple-300 rounded-full transform -rotate-12 opacity-80"></div>
+              {/* Right wing */}
+              <div className="absolute -right-3 top-1 w-6 h-4 bg-gradient-to-l from-blue-300 to-purple-300 rounded-full transform rotate-12 opacity-80"></div>
+              {/* Center W with stars */}
+              <div className="relative z-10">
+                <span className="text-3xl font-bold bg-gradient-to-r from-white to-purple-100 bg-clip-text text-transparent">
+                  W
+                </span>
+                {/* Floating stars around the W */}
+                <Star className="absolute -top-1 -right-1 w-2 h-2 text-yellow-300 fill-yellow-300" />
+                <Heart className="absolute -bottom-1 -left-1 w-1.5 h-1.5 text-pink-300 fill-pink-300" />
+              </div>
+            </div>
           </div>
           <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
           <p className="text-white/80 text-lg">Sign in to continue</p>

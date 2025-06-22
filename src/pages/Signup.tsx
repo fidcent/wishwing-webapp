@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
-import { Eye, EyeOff, Mail, Lock, User, Phone } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, User, Phone, Star, Heart } from "lucide-react";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -37,12 +37,27 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-500 via-blue-600 to-purple-600 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-violet-500 via-purple-600 to-blue-600 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        {/* Logo/Brand */}
+        {/* Creative WishWing Logo */}
         <div className="text-center mb-8">
-          <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-6 border border-white/20">
-            <span className="text-3xl font-bold text-white">W</span>
+          <div className="relative w-20 h-20 bg-white/10 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-6 border border-white/20">
+            {/* Wing design with overlapping elements */}
+            <div className="relative">
+              {/* Left wing */}
+              <div className="absolute -left-3 top-1 w-6 h-4 bg-gradient-to-r from-pink-300 to-purple-300 rounded-full transform -rotate-12 opacity-80"></div>
+              {/* Right wing */}
+              <div className="absolute -right-3 top-1 w-6 h-4 bg-gradient-to-l from-blue-300 to-purple-300 rounded-full transform rotate-12 opacity-80"></div>
+              {/* Center W with stars */}
+              <div className="relative z-10">
+                <span className="text-3xl font-bold bg-gradient-to-r from-white to-purple-100 bg-clip-text text-transparent">
+                  W
+                </span>
+                {/* Floating stars around the W */}
+                <Star className="absolute -top-1 -right-1 w-2 h-2 text-yellow-300 fill-yellow-300" />
+                <Heart className="absolute -bottom-1 -left-1 w-1.5 h-1.5 text-pink-300 fill-pink-300" />
+              </div>
+            </div>
           </div>
           <h1 className="text-3xl font-bold text-white mb-2">Create Account</h1>
           <p className="text-white/80 text-lg">Join WishWing today</p>
@@ -60,7 +75,7 @@ const Signup = () => {
                   value={formData.name}
                   onChange={(e) => handleInputChange("name", e.target.value)}
                   placeholder="Enter your full name"
-                  className="pl-10 h-12 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
+                  className="pl-10 h-12 border-gray-200 focus:border-purple-500 focus:ring-purple-500"
                   required
                 />
               </div>
@@ -76,7 +91,7 @@ const Signup = () => {
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
                   placeholder="Enter your email"
-                  className="pl-10 h-12 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
+                  className="pl-10 h-12 border-gray-200 focus:border-purple-500 focus:ring-purple-500"
                   required
                 />
               </div>
@@ -92,7 +107,7 @@ const Signup = () => {
                   value={formData.phone}
                   onChange={(e) => handleInputChange("phone", e.target.value)}
                   placeholder="Enter your phone number"
-                  className="pl-10 h-12 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
+                  className="pl-10 h-12 border-gray-200 focus:border-purple-500 focus:ring-purple-500"
                   required
                 />
               </div>
@@ -108,7 +123,7 @@ const Signup = () => {
                   value={formData.password}
                   onChange={(e) => handleInputChange("password", e.target.value)}
                   placeholder="Create a password"
-                  className="pl-10 pr-10 h-12 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
+                  className="pl-10 pr-10 h-12 border-gray-200 focus:border-purple-500 focus:ring-purple-500"
                   required
                 />
                 <button
@@ -131,7 +146,7 @@ const Signup = () => {
                   value={formData.confirmPassword}
                   onChange={(e) => handleInputChange("confirmPassword", e.target.value)}
                   placeholder="Confirm your password"
-                  className="pl-10 pr-10 h-12 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
+                  className="pl-10 pr-10 h-12 border-gray-200 focus:border-purple-500 focus:ring-purple-500"
                   required
                 />
                 <button
@@ -148,16 +163,16 @@ const Signup = () => {
               <input
                 id="terms"
                 type="checkbox"
-                className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
                 required
               />
               <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
                 I agree to the{" "}
-                <Link to="#" className="text-blue-600 hover:text-blue-700 font-medium">
+                <Link to="#" className="text-purple-600 hover:text-purple-700 font-medium">
                   Terms of Service
                 </Link>{" "}
                 and{" "}
-                <Link to="#" className="text-blue-600 hover:text-blue-700 font-medium">
+                <Link to="#" className="text-purple-600 hover:text-purple-700 font-medium">
                   Privacy Policy
                 </Link>
               </label>
@@ -166,7 +181,7 @@ const Signup = () => {
             <Button 
               type="submit" 
               disabled={isLoading}
-              className="w-full h-12 bg-gradient-to-r from-emerald-600 to-blue-600 hover:from-emerald-700 hover:to-blue-700 text-white font-semibold text-lg rounded-xl"
+              className="w-full h-12 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white font-semibold text-lg rounded-xl"
             >
               {isLoading ? (
                 <div className="flex items-center space-x-2">
@@ -182,7 +197,7 @@ const Signup = () => {
           <div className="mt-8 text-center">
             <p className="text-gray-600">
               Already have an account?{" "}
-              <Link to="/login" className="text-blue-600 hover:text-blue-700 font-semibold">
+              <Link to="/login" className="text-purple-600 hover:text-purple-700 font-semibold">
                 Sign in
               </Link>
             </p>
